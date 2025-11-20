@@ -15,6 +15,22 @@ const LLM_MODELS: Record<AIProviderType, ModelConfig[]> = {
   [AIProviderType.AI_SDK]: [
     // Anthropic
     {
+      name: "claude-sonnet-4-5-20250929",
+      createAi: createAnthropic,
+    },
+    {
+      name: "claude-4.5-sonnet",
+      createAi: createAnthropic,
+    },
+    {
+      name: "claude-haiku-4-5-20251001",
+      createAi: createAnthropic,
+    },
+    {
+      name: "claude-4.1-opus",
+      createAi: createAnthropic,
+    },
+    {
       name: "claude-3-5-sonnet-20240620",
       createAi: createAnthropic,
     },
@@ -22,39 +38,22 @@ const LLM_MODELS: Record<AIProviderType, ModelConfig[]> = {
       name: "claude-3-5-sonnet-20241022",
       createAi: createAnthropic,
     },
-    {
-      name: "claude-3-7-sonnet-20250219",
-      createAi: createAnthropic,
-    },
-    {
-      name: "claude-sonnet-4-20250514",
-      createAi: createAnthropic,
-    },
-    {
-      name: "claude-opus-4-20250514",
-      createAi: createAnthropic,
-    },
-    {
-      name: "claude-opus-4-1-20250805",
-      createAi: createAnthropic,
-    },
-    {
-      name: "claude-sonnet-4-5-20250929",
-      createAi: createAnthropic,
-    },
-    {
-      name: "claude-sonnet-4-5",
-      createAi: createAnthropic,
-    },
-    {
-      name: "claude-code-4.5",
-      createAi: createAnthropic,
-    },
-    {
-      name: "claude-4.5-sonnet",
-      createAi: createAnthropic,
-    },
     // OpenAI
+    {
+      name: "gpt-5.1",
+      createAi: createOpenAI,
+      temperature: 1,
+    },
+    {
+      name: "gpt-5.1-mini",
+      createAi: createOpenAI,
+      temperature: 1,
+    },
+    {
+      name: "gpt-5.1-nano",
+      createAi: createOpenAI,
+      temperature: 1,
+    },
     {
       name: "gpt-5",
       createAi: createOpenAI,
@@ -71,19 +70,8 @@ const LLM_MODELS: Record<AIProviderType, ModelConfig[]> = {
       temperature: 1,
     },
     {
-      name: "gpt-5.1",
+      name: "gpt-4.1",
       createAi: createOpenAI,
-      temperature: 1,
-    },
-    {
-      name: "gpt-5.1-mini",
-      createAi: createOpenAI,
-      temperature: 1,
-    },
-    {
-      name: "gpt-5.1-nano",
-      createAi: createOpenAI,
-      temperature: 1,
     },
     {
       name: "gpt-4.1-mini",
@@ -101,43 +89,9 @@ const LLM_MODELS: Record<AIProviderType, ModelConfig[]> = {
       name: "o1-mini",
       createAi: createOpenAI,
     },
+    // Google
     {
-      name: "o3-mini",
-      createAi: createOpenAI,
-      temperature: 1,
-    },
-    {
-      name: "o4-mini",
-      createAi: createOpenAI,
-      temperature: 1,
-    },
-    {
-      name: "gpt-4.1",
-      createAi: createOpenAI,
-    },
-    // Google stable models https://ai.google.dev/gemini-api/docs/models/gemini
-    {
-      name: "gemini-2.0-flash-001",
-      createAi: createGoogleGenerativeAI,
-    },
-    {
-      name: "gemini-2.0-flash-lite-preview-02-05",
-      createAi: createGoogleGenerativeAI,
-    },
-    {
-      name: "gemini-1.5-flash",
-      createAi: createGoogleGenerativeAI,
-    },
-    {
-      name: "gemini-1.5-flash-latest",
-      createAi: createGoogleGenerativeAI,
-    },
-    {
-      name: "gemini-1.5-flash-8b",
-      createAi: createGoogleGenerativeAI,
-    },
-    {
-      name: "gemini-1.5-pro",
+      name: "gemini-3-pro-preview",
       createAi: createGoogleGenerativeAI,
     },
     {
@@ -149,36 +103,19 @@ const LLM_MODELS: Record<AIProviderType, ModelConfig[]> = {
       createAi: createGoogleGenerativeAI,
     },
     {
-      name: "gemini-3.0-pro",
+      name: "gemini-2.5-flash-lite",
       createAi: createGoogleGenerativeAI,
     },
     {
-      name: "gemini-3.0-flash",
-      createAi: createGoogleGenerativeAI,
-    },
-    // Google experimental models https://ai.google.dev/gemini-api/docs/models/experimental-models
-    {
-      name: "gemini-2.5-pro-preview-05-06",
+      name: "gemini-2.0-flash-001",
       createAi: createGoogleGenerativeAI,
     },
     {
-      name: "gemini-2.5-flash-preview-04-17",
+      name: "gemini-1.5-flash",
       createAi: createGoogleGenerativeAI,
     },
     {
-      name: "gemini-2.0-pro-exp-02-05",
-      createAi: createGoogleGenerativeAI,
-    },
-    {
-      name: "gemini-2.0-flash-thinking-exp-01-21",
-      createAi: createGoogleGenerativeAI,
-    },
-    {
-      name: "gemini-2.5-flash-preview-05-20",
-      createAi: createGoogleGenerativeAI,
-    },
-    {
-      name: "gemini-2.5-flash-lite-preview-06-17",
+      name: "gemini-1.5-pro",
       createAi: createGoogleGenerativeAI,
     },
   ],
