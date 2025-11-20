@@ -1,5 +1,7 @@
 import { getInput, getMultilineInput } from "@actions/core";
 import { AIProviderType } from "./ai";
+import * as fs from "fs";
+import * as path from "path";
 
 export class Config {
   public llmApiKey: string | undefined;
@@ -7,6 +9,7 @@ export class Config {
   public llmProvider: string;
   public githubToken: string | undefined;
   public styleGuideRules: string | undefined;
+  public reviewGuidelines: string | undefined;
   public githubApiUrl: string;
   public githubServerUrl: string;
 
@@ -91,6 +94,19 @@ export class Config {
     } catch (e) {
       console.error("Error loading style guide rules:", e);
     }
+
+    // Load review guidelines from file
+    try {
+      const guidelinePath = path.join(process.cwd(), "review-guideline.md");
+      if (fs.existsSync(guidelinePath)) {
+        this.reviewGuidelines = fs.readFileSync(guidelinePath, "utf-8");
+        if (process.env.DEBUG) {
+          console.log(`[debug] Loaded review guidelines from ${guidelinePath}`);
+        }
+      }
+    } catch (e) {
+      console.error("Error loading review guidelines:", e);
+    }
   }
 }
 
@@ -113,6 +129,7 @@ export default process.env.NODE_ENV === "test"
       llmModel: "mock-model",
       llmProvider: "mock-provider",
       styleGuideRules: "",
+      reviewGuidelines: "",
       sapAiCoreClientId: "mock-client-id",
       sapAiCoreClientSecret: "mock-client-secret",
       sapAiCoreTokenUrl: "mock-token-url",

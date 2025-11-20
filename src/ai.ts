@@ -46,6 +46,14 @@ const LLM_MODELS: Record<AIProviderType, ModelConfig[]> = {
       name: "claude-sonnet-4-5",
       createAi: createAnthropic,
     },
+    {
+      name: "claude-code-4.5",
+      createAi: createAnthropic,
+    },
+    {
+      name: "claude-4.5-sonnet",
+      createAi: createAnthropic,
+    },
     // OpenAI
     {
       name: "gpt-5",
@@ -59,6 +67,21 @@ const LLM_MODELS: Record<AIProviderType, ModelConfig[]> = {
     },
     {
       name: "gpt-5-nano",
+      createAi: createOpenAI,
+      temperature: 1,
+    },
+    {
+      name: "gpt-5.1",
+      createAi: createOpenAI,
+      temperature: 1,
+    },
+    {
+      name: "gpt-5.1-mini",
+      createAi: createOpenAI,
+      temperature: 1,
+    },
+    {
+      name: "gpt-5.1-nano",
       createAi: createOpenAI,
       temperature: 1,
     },
@@ -123,6 +146,14 @@ const LLM_MODELS: Record<AIProviderType, ModelConfig[]> = {
     },
     {
       name: "gemini-2.5-flash",
+      createAi: createGoogleGenerativeAI,
+    },
+    {
+      name: "gemini-3.0-pro",
+      createAi: createGoogleGenerativeAI,
+    },
+    {
+      name: "gemini-3.0-flash",
       createAi: createGoogleGenerativeAI,
     },
     // Google experimental models https://ai.google.dev/gemini-api/docs/models/experimental-models

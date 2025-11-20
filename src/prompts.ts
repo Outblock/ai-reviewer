@@ -185,6 +185,10 @@ ${config.styleGuideRules && config.styleGuideRules.length > 0
       ? `Guidelines for the review, such as style guides, conventions, or best practices, violating the following guidelines should result in a critical comment:
 ${config.styleGuideRules}`
       : ''}
+
+${config.reviewGuidelines && config.reviewGuidelines.length > 0
+      ? `\n<Project Specific Review Guidelines>\n${config.reviewGuidelines}\n</Project Specific Review Guidelines>`
+      : ''}
 </IMPORTANT INSTRUCTIONS>
 
 <EXAMPLE>
