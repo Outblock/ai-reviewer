@@ -19,38 +19,20 @@ const LLM_MODELS: Record<AIProviderType, ModelConfig[]> = {
       createAi: createAnthropic,
     },
     {
-      name: "claude-4.5-sonnet",
-      createAi: createAnthropic,
-    },
-    {
       name: "claude-haiku-4-5-20251001",
       createAi: createAnthropic,
     },
     {
-      name: "claude-4.1-opus",
+      name: "claude-sonnet-4-20250514",
       createAi: createAnthropic,
     },
     {
-      name: "claude-3-5-sonnet-20240620",
-      createAi: createAnthropic,
-    },
-    {
-      name: "claude-3-5-sonnet-20241022",
+      name: "claude-opus-4-1-20250805",
       createAi: createAnthropic,
     },
     // OpenAI
     {
       name: "gpt-5.1",
-      createAi: createOpenAI,
-      temperature: 1,
-    },
-    {
-      name: "gpt-5.1-mini",
-      createAi: createOpenAI,
-      temperature: 1,
-    },
-    {
-      name: "gpt-5.1-nano",
       createAi: createOpenAI,
       temperature: 1,
     },
