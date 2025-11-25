@@ -30,6 +30,10 @@ const LLM_MODELS: Record<AIProviderType, ModelConfig[]> = {
       name: "claude-opus-4-1-20250805",
       createAi: createAnthropic,
     },
+    {
+      name: "claude-opus-4-5-20251101",
+      createAi: createAnthropic,
+    },
     // OpenAI
     {
       name: "gpt-5.1",
